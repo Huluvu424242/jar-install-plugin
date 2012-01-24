@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>
-		JAR Install Plugin</title>
+        JAR Install Plugin</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -55,7 +55,7 @@
                        <h5>Sprache</h5>
                   <ul>
                   <li class="none">
-                          <a href="../index.html" title="Englisch (en)">Englisch (en)</a>
+                          <a href="../index.html" title="English (en)">English (en)</a>
             </li>
                   <li class="none">
             <strong>Deutsch (de)</strong>
@@ -78,10 +78,48 @@
           </ul>
                        <h5>Projektdokumentation</h5>
                   <ul>
-                                                                                                                                                                                                                                                        <li class="collapsed">
+                                                                                                                                                                                                                                                                                    <li class="expanded">
                           <a href="project-info.html" title="Projektinformationen">Projektinformationen</a>
-                  </li>
-                                                                                                                                                                                                                                                                                                              <li class="collapsed">
+                    <ul>
+                      <li class="none">
+                          <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
+            </li>
+                      <li class="none">
+            <strong>Willkommen bei</strong>
+          </li>
+                      <li class="none">
+                          <a href="dependencies.html" title="Abhängigkeiten">Abhängigkeiten</a>
+            </li>
+                      <li class="none">
+                          <a href="issue-tracking.html" title="Issue-Tracker">Issue-Tracker</a>
+            </li>
+                      <li class="none">
+                          <a href="plugins.html" title="Plugins">Plugins</a>
+            </li>
+                      <li class="none">
+                          <a href="integration.html" title="Continuous-Integration">Continuous-Integration</a>
+            </li>
+                      <li class="none">
+                          <a href="license.html" title="Projektlizenz">Projektlizenz</a>
+            </li>
+                      <li class="none">
+                          <a href="mail-lists.html" title="Mailinglisten">Mailinglisten</a>
+            </li>
+                      <li class="none">
+                          <a href="team-list.html" title="Projektteam">Projektteam</a>
+            </li>
+                      <li class="none">
+                          <a href="source-repository.html" title="Versionskontrolle">Versionskontrolle</a>
+            </li>
+                      <li class="none">
+                          <a href="plugin-management.html" title="Plugin-Management">Plugin-Management</a>
+            </li>
+                      <li class="none">
+                          <a href="project-summary.html" title="Zusammenfassung">Zusammenfassung</a>
+            </li>
+              </ul>
+        </li>
+                                                                    <li class="collapsed">
                           <a href="project-reports.html" title="Projektberichte">Projektberichte</a>
                   </li>
           </ul>
@@ -104,21 +142,26 @@
     <div id="bodyColumn">
       <div id="contentBox">
         
-	
+    
 
-		<div class="section"><h2>JAR Install Plugin<a name="JAR_Install_Plugin"></a></h2>
-			<p>
-				Das Plugin l&#xe4;dt f&#xfc;r einen Maven Build ben&#xf6;tigte JAR Files aus dem
-				Internet und installiert diese im lokalen Maven Repository.
-				Die
-				herunter geladenen Dateien werden zus&#xe4;tzlich entsprechend ihres
-				Scopes
-				in die Liste der Abh&#xe4;ngigkeiten des Maven Projektes aufgenommen.
-			</p>
-		</div>
+        <div class="section"><h2>JAR Install Plugin<a name="JAR_Install_Plugin"></a></h2>
+            <p>
+                This plugin will be dowload jar files and put them into
+                your local
+                maven repository. Additional the downloaded
+                jars will be added to
+                the project dependencies.
+            </p>
+            <p>
+                Useful to add 3th party jar's in the build process, if
+                the jar's are not
+                in a accessable maven repository or the
+                jar's was not builded by maven.
+            </p>
+        </div>
 
 
-	
+    
 
       </div>
     </div>
