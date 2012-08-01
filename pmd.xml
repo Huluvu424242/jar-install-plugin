@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2012-01-29T17:11:41.944">
-<file name="/scratch/hudson/workspace/jar-install-plugin (snapshot)/src/main/java/net/sf/maven/plugins/jarinstall/JarInstallMojo.java">
+<pmd version="4.2.5" timestamp="2012-08-01T06:30:34.802">
+<file name="/scratch/jenkins/workspace/jar-install-plugin (snapshot)/src/main/java/net/sf/maven/plugins/jarinstall/JarInstallMojo.java">
 <violation beginline="24" endline="24" begincolumn="1" endcolumn="41" rule="UnusedImports" ruleset="Import Statement Rules" package="net.sf.maven.plugins.jarinstall" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'org.apache.maven.model.Dependency'
 </violation>
