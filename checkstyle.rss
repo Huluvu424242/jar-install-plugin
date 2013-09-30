@@ -6,7 +6,7 @@
     <link>https://github.com/FunThomas424242/jar-install-plugin/</link>
     <description>JAR Install Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2012</copyright>
+    <copyright>&#169;2010 - 2013</copyright>
     <item>
       <title>File: 2,
              Errors: 745,
@@ -38,7 +38,7 @@
                   0
                 </td>
                 <td>
-                  503
+                  502
                 </td>
               </tr>
                           <tr>
@@ -52,7 +52,7 @@
                   0
                 </td>
                 <td>
-                  242
+                  243
                 </td>
               </tr>
                       </tbody>
