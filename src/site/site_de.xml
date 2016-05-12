@@ -1,0 +1,43 @@
+<project name="jar-install-plugin">
+	<bannerLeft>
+		<name>${project.artifactId}</name>
+		<src>../images/project-images/Logo48x48.png
+		</src>
+		<href>http://funthomas424242.github.com/jar-install-plugin/</href>
+	</bannerLeft>
+
+	<bannerRight>
+	<name>${project.artifactId}</name>
+		<src>http://sflogo.sourceforge.net/sflogo.php?group_id=293502&amp;type=16
+		</src>
+		<href>http://sourceforge.net/projects/sf-mvn-plugins</href>
+	</bannerRight>
+
+	<poweredBy>
+	    <logo name="Sourceforge" href="http://sourceforge.net"
+			  img="http://sflogo.sourceforge.net/sflogo.php?group_id=293502&amp;type=8"/>
+        <logo name="Github" href="http://github.com/"
+              img="http://github.com/images/modules/header/logov3.png"/>
+        <logo name="Maven" href="http://maven.apache.org/"
+              img="http://maven.apache.org/images/logos/maven-feather.png"/>
+		<logo name="CloudBees" href="http://cloudbees.com"
+			  img="http://web-static-cloudfront.s3.amazonaws.com/images/badges/BuiltOnDEV.png" />       
+    </poweredBy>
+
+	<body>
+		<menu name="Hauptprojekt">
+			<item name="SF Maven Plugins" href="http://sf-mvn-plugins.sourceforge.net" />
+		</menu>
+		<menu name="Sprache">
+			<item name="English (en)" href="../index.html" />
+			<item name="Deutsch (de)" href="index.html" />
+		</menu>
+		<menu name="Version ${project.version}">
+			<item name="Startseite" href="index.html" />
+			<item name="Release Notizen" href="changes-report.html" />
+			<item name="FAQ" href="FAQ.html" />
+			<item name="Download Bereich" href="download.html" collapse="true"/>				
+		</menu>
+		<menu ref="reports" />
+	</body>
+</project>

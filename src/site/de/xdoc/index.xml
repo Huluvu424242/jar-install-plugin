@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <title>JAR Install Plugin</title>
+        <author email="tmichel@users.sourceforge.net">FunThomas424242 (Thomas Schubert)</author>
+    </properties>
+    <body>
+
+        <section name="JAR Install Plugin">
+            <p>
+                Das Plugin lädt für einen Maven Build benötigte JAR Files aus dem
+                Internet und installiert diese im lokalen Maven
+                Repository.
+                Die
+                herunter geladenen Dateien werden zusätzlich entsprechend ihres
+                Scopes
+                in die Liste der Abhängigkeiten des Maven Projektes aufgenommen.
+            </p>
+            <p>
+                Nützlich um JAR's von Drittanbietern in den Maven Build Prozess zu
+                integrieren, falls diese weder in einem zentralen
+                Repository
+                verfügbar sind oder einfach auch keine Artifakte eines Maven Builds
+                darstellen und ihnen somit die Metainformationen fehlen.
+            </p>
+        </section>
+
+
+    </body>
+</document>
+

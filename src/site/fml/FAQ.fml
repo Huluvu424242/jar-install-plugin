@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<faqs title="Frequently Asked Questions(FAQ)" toplink="false">
+
+	<part id="plugin">
+		<title>Plugin Configuration</title>
+
+		<faq id="maven-params">
+			<question>
+				What are the
+				<strong>intern</strong>
+				plugin parameter?
+			</question>
+			<answer>
+				<dl>
+					<dt>localRepository</dt>
+					<dd>
+						The local Repository.
+						Type: org.apache.maven.artifact.repository.ArtifactRepository,
+						@required, @readonly,
+						default:${localRepository}
+					</dd>
+					<dt>artifactFactory</dt>
+					<dd>
+						The standard artifact factory (a plexus component).
+						dependencies. Type: org.apache.maven.artifact.factory.ArtifactFactory,
+						@component
+					</dd>
+					<dt>installer</dt>
+					<dd>
+						The standard artifact installer (a plexus component).
+						Type: org.apache.maven.artifact.installer.ArtifactInstaller,
+						@component
+					</dd>
+				</dl>
+			</answer>
+		</faq>
+		<faq id="user-params">
+			<question>
+				What are the
+				<strong>useable</strong>
+				plugin parameter?
+			</question>
+			<answer>
+				<dl>
+					<dt>downloads</dt>
+					<dd>
+						A list of artifacts to download and install.
+						Type: java.util.List&lt;DownloadArtifact&gt;,
+					</dd>
+				</dl>
+			</answer>
+		</faq>
+		<faq id="repositories">
+			<question>
+				Which maven repository contains the 1jar-maven-plugin?
+			</question>
+			<answer>
+			<p>
+				This plugin is not available in the standard maven
+				repository. But you can download it via the following
+				repository entry in your pom.xml
+				</p><p>For Download Plugin from Sourceforge, please add this to your pom.xml</p>
+				<source><![CDATA[
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sourceforge-frs</id>
+			<name>SF Maven Plugin Repository</name>
+			<url>http://sourceforge.net/projects/sf-mvn-plugins/files/m2-repo</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<repositories>
+		<repository>
+			<id>sourceforge-svn</id>
+			<name>SF Maven Plugin SVN Repository</name>
+			<url>http://sf-mvn-plugins.svn.sourceforge.net/svnroot/sf-mvn-plugins/_m2-repo</url>
+		</repository>
+	</repositories>
+	
+                ]]></source>   
+                <p>And add this to your settings.xml</p>
+                <source><![CDATA[
+    <server>
+      <id>sourceforge-frs</id>
+      <configuration>
+        <wagonProvider>sourceforge</wagonProvider>
+      </configuration>
+    </server>
+                ]]></source>   
+			</answer>
+		</faq>
+	</part>
+
+
+	<part id="example">
+		<title>Example to use the 1jar-maven-plugin</title>
+
+		<faq id="usage">
+			<question>How can i use the plugin?</question>
+			<answer>
+                <p> Here is a example how you can add the plugin to your pom.xml.</p>
+				
+						<source><![CDATA[
+<build>
+<extensions>
+	<extension>
+		<groupId>net.sf.maven.plugins</groupId>
+		<artifactId>wagon-http-sourceforge</artifactId>
+		<version>0.4-SNAPSHOT</version>
+	</extension>
+</extensions>
+
+<plugins>
+	:
+	<plugin>
+		<groupId>net.sf.maven.plugins</groupId>
+		<artifactId>jar-install-plugin</artifactId>
+		<executions>
+			<execution>
+				<goals>
+					<goal>install</goal>
+				</goals>
+				<configuration>
+					<downloads>
+						<downloadArtifact>
+							<url>http://sourceforge.net/projects/one-jar/files/one-jar/one-jar-0.96/one-jar-boot-0.96.jar/download</url>
+							<groupId>com.simontuffs.onejar</groupId>
+							<artifactId>one-jar-boot</artifactId>
+							<version>0.96</version>
+						</downloadArtifact>
+					</downloads>
+				</configuration>
+			</execution>
+		</executions>
+	</plugin>
+	:
+</plugins>
+:
+</build>
+				]]></source>
+	       	</answer>
+		</faq>
+	</part>
+	
+	<part id="bugs">
+		<title>Known bugs of Plugin</title>
+		<faq id="knownbugs">
+			<question>Wich bugs are known?</question>
+			<answer>
+				?
+			</answer>
+		</faq>
+	</part>
+</faqs>
