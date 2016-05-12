@@ -1,0 +1,26 @@
+#
+language:
+    - java
+
+#services:
+#  - docker
+
+jdk:
+    - oraclejdk8
+#    - oraclejdk7
+
+#env:
+#   -  ciserver=true
+
+#before_install:
+#   - rm -f ~/bookdb.*
+#   - mvn -Pciserver clean 
+
+#install:
+#   - mvn -Pciserver install -DskipTests=true -Dmaven.javadoc.skip=true -B -V 
+
+#before_script:
+#   - mvn -Pciserver test -B
+
+#script:
+#   - mvn -Pciserver install
