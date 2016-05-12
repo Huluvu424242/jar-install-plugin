@@ -5,6 +5,21 @@
 You can use the jar-install-plugin in maven3 to download jar's by a given url 
 and add them to the local maven repository and the maven project dependencies.
 
+Das Plugin lädt für einen Maven Build benötigte JAR Files aus dem
+Internet und installiert diese im lokalen Maven
+Repository.
+Die
+herunter geladenen Dateien werden zusätzlich entsprechend ihres
+Scopes
+in die Liste der Abhängigkeiten des Maven Projektes aufgenommen.
+
+Nützlich um JAR's von Drittanbietern in den Maven Build Prozess zu
+integrieren, falls diese weder in einem zentralen
+Repository
+verfügbar sind oder einfach auch keine Artifakte eines Maven Builds
+darstellen und ihnen somit die Metainformationen fehlen.
+
+
 ## Project Sites
 
 
