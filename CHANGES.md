@@ -1,6 +1,6 @@
 # Liste der Änderungen             
             
-## 0.3
+## 0.0.3
 
 * Das Projekt wird ab sofort über die commit ID funthomas424242 realisiert.
 * Die groupId wird festgelegt auf: com.github.funthomas424242
@@ -8,6 +8,7 @@
 * Als CI System wird travis-ci.org genutzt
 * Zum Deployment wird bintray genutzt - in der Hoffnung in Richtung
   maven central deployen zu dürfen. 
+* version fixed to maven convention
 
 
 ## 0.2-SNAPSHOT 21.01.2012
