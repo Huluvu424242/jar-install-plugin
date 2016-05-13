@@ -56,7 +56,7 @@ public class JarInstallMojo extends AbstractMojo {
 	protected MavenProjectHelper projectHelper;
 
 	/**
-	 * @parameter expression="${localRepository}"
+	 * @parameter property="localRepository"
 	 * @required
 	 * @readonly
 	 */
