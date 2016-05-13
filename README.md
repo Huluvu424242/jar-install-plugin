@@ -20,6 +20,12 @@ verfügbar sind oder einfach auch keine Artifakte eines Maven Builds
 darstellen und ihnen somit die Metainformationen fehlen.
 
 
+## Nützliche Quellen im Zwischennetz (Neuland in de)
+
+* https://maven.apache.org/plugin-developers/plugin-testing.html
+* https://github.com/apache/maven-plugins/blob/trunk/maven-install-plugin/src/test/java/org/apache/maven/plugin/install/InstallFileMojoTest.java
+
+
 ## Project Sites
 
 
