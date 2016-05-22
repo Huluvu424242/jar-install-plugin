@@ -1,6 +1,7 @@
 # jar-install-plugin (for maven)
 
 [![Build Status](https://travis-ci.org/FunThomas424242/jar-install-plugin.svg?branch=master)](https://travis-ci.org/FunThomas424242/jar-install-plugin)
+[ ![Download](https://api.bintray.com/packages/funthomas424242/funthomas424242-maven-plugins/jar-install-plugin/images/download.svg) ](https://bintray.com/funthomas424242/funthomas424242-maven-plugins/jar-install-plugin/_latestVersion)
 
 You can use the jar-install-plugin in maven3 to download jar's by a given url 
 and add them to the local maven repository and the maven project dependencies.
