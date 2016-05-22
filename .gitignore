@@ -8,3 +8,5 @@ bin/
 
 /bin/
 /bin/
+/pom.xml.releaseBackup
+/release.properties
