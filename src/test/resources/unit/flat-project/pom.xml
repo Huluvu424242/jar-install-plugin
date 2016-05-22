@@ -11,11 +11,8 @@
 	<url>https://github.com/FunThomas424242/jar-install-plugin/</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>mytest</groupId>
-			<artifactId>mytest</artifactId>
-			<version>3.3.9</version>
-		</dependency>
+		<!-- <dependency> <groupId>gui4j</groupId> <artifactId>gui4j</artifactId> 
+			<version>1.2.3</version> <scope>compile</scope> </dependency> -->
 	</dependencies>
 
 	<build>
@@ -24,10 +21,12 @@
 			<plugin>
 				<groupId>com.github.funthomas424242</groupId>
 				<artifactId>jar-install-plugin</artifactId>
-				<version>0.0.3</version>
+				<version>0.0.3-SNAPSHOT</version>
+				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<id>verify</id>
+						<id>downloadjars</id>
+						<phase>validate</phase>
 						<goals>
 							<goal>install</goal>
 						</goals>
@@ -36,12 +35,13 @@
 				<configuration>
 					<!-- Specify the MyMojo parameter -->
 					<downloads>
-						<download>
-							<groupId>mytest</groupId>
-							<artifactId>mytest</artifactId>
-							<version>3.3.9</version>
-							<url>http://central.maven.org/maven2/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.jar</url>
-						</download>
+						<downloadArtifact>
+							<url>http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download</url>
+							<groupId>gui4j</groupId>
+							<artifactId>gui4j</artifactId>
+							<version>1.2.3</version>
+							<scope>compile</scope>
+						</downloadArtifact>
 					</downloads>
 				</configuration>
 

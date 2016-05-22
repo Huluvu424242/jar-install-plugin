@@ -18,6 +18,7 @@ import java.util.Set;
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DefaultArtifact;
+import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.apache.maven.artifact.installer.ArtifactInstallationException;
 import org.apache.maven.artifact.installer.ArtifactInstaller;
 import org.apache.maven.artifact.repository.ArtifactRepository;
@@ -187,8 +188,10 @@ public class JarInstallMojo extends AbstractMojo {
 
             // final Artifact artifact = artifactFactory.createArtifact(groupId,
             // artifactId, version, scope, type);
+            final DefaultArtifactHandler artifactHandler = new DefaultArtifactHandler(
+                    type);
             final Artifact artifact = new DefaultArtifact(groupId, artifactId,
-                    versionsRange, scope, type, null, null);
+                    versionsRange, scope, type, null, artifactHandler);
 
             addProjectDependency(artifact);
 
