@@ -67,14 +67,6 @@ public class JarInstallMojo extends AbstractMojo {
      */
     protected ArtifactRepository localRepository;
 
-    // /**
-    // * @component
-    // * @required
-    // * @readonly
-    // */
-    // protected ArtifactFactory artifactFactory;
-    protected Repository artifactFactory;
-
     /**
      * @component
      * @required
@@ -186,8 +178,6 @@ public class JarInstallMojo extends AbstractMojo {
             final VersionRange versionsRange = VersionRange
                     .createFromVersion(version);
 
-            // final Artifact artifact = artifactFactory.createArtifact(groupId,
-            // artifactId, version, scope, type);
             final DefaultArtifactHandler artifactHandler = new DefaultArtifactHandler(
                     type);
             final Artifact artifact = new DefaultArtifact(groupId, artifactId,

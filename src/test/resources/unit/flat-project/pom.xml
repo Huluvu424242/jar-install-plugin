@@ -11,8 +11,12 @@
 	<url>https://github.com/FunThomas424242/jar-install-plugin/</url>
 
 	<dependencies>
-		<!-- <dependency> <groupId>gui4j</groupId> <artifactId>gui4j</artifactId> 
-			<version>1.2.3</version> <scope>compile</scope> </dependency> -->
+		<!-- <dependency>
+			<groupId>gui4j</groupId>
+			<artifactId>gui4j</artifactId>
+			<version>1.2.3</version>
+			<scope>compile</scope>
+		</dependency> -->
 	</dependencies>
 
 	<build>
