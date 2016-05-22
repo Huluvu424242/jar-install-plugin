@@ -84,24 +84,43 @@ Eine mögliche pom.xml folgt. Im pom wird gui4j aus dem Internet heruntergeladen
 </project>
 ```
 
-
-## Nützliche Quellen im Zwischennetz (Neuland in de)
-
-* https://maven.apache.org/plugin-developers/plugin-testing.html
-* https://github.com/apache/maven-plugins/blob/trunk/maven-install-plugin/src/test/java/org/apache/maven/plugin/install/InstallFileMojoTest.java
-
-
-## Project Sites
-
 **Maven Repositories**
 
- - snapshot repository: https://repository-funthomas424242.forge.cloudbees.com/snapshot/
- - release repository: https://repository-funthomas424242.forge.cloudbees.com/release/
+```
+<repositories>
+<repository>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+<id>bintray-funthomas424242-funthomas424242-maven-plugins</id>
+<name>bintray</name>
+<url>http://dl.bintray.com/funthomas424242/funthomas424242-maven-plugins</url>
+</repository>
+</repositories>
+<pluginRepositories>
+<pluginRepository>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+<id>bintray-funthomas424242-funthomas424242-maven-plugins</id>
+<name>bintray-plugins</name>
+<url>http://dl.bintray.com/funthomas424242/funthomas424242-maven-plugins</url>
+</pluginRepository>
+</pluginRepositories>
+<id>bintray</id>
+
+```
 
 **Project on GitHub:** https://github.com/funthomas424242/jar-install-plugin/
 
 **The old sources** are hosted on sourceforge: 
 http://sf-mvn-plugins.svn.sourceforge.net/viewvc/sf-mvn-plugins/ (svn repo)
+
+
+## Nützliche Quellen im Zwischennetz (Neuland in de)
+
+* https://maven.apache.org/plugin-developers/plugin-testing.html
+* https://github.com/apache/maven-plugins/blob/trunk/maven-install-plugin/src/test/java/org/apache/maven/plugin/install/InstallFileMojoTest.java
 
 
 ## Powered by
