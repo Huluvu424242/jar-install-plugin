@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.funthomas424242</groupId>
 	<artifactId>jar-install-plugin</artifactId>
@@ -43,12 +44,11 @@
 		<url>https://github.com/FunThomas424242/jar-install-plugin</url>
 		<connection>scm:git:https://github.com/FunThomas424242/jar-install-plugin.git</connection>
 		<developerConnection>scm:git:https://github.com/FunThomas424242/jar-install-plugin.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+	</scm>
 
 	<ciManagement>
 		<system>Travis</system>
-		<url>https://funthomas424242.ci.cloudbees.com/job/jar-install-plugin%20(snapshot)/</url>
+		<url>https://travis-ci.org/FunThomas424242/jar-install-plugin</url>
 	</ciManagement>
 
 	<issueManagement>
@@ -157,20 +157,10 @@
 							</descriptorRefs>
 						</configuration>
 					</execution>
-					<!-- <execution>
-						<id>siteassembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/archives</outputDirectory>
-							<tarLongFileMode>gnu</tarLongFileMode>
-							<descriptors>
-								<descriptor>src/main/assembly/site.xml</descriptor>
-							</descriptors>
-						</configuration>
-					</execution> -->
+					<!-- <execution> <id>siteassembly</id> <phase>package</phase> <goals> 
+						<goal>single</goal> </goals> <configuration> <outputDirectory>${project.build.directory}/archives</outputDirectory> 
+						<tarLongFileMode>gnu</tarLongFileMode> <descriptors> <descriptor>src/main/assembly/site.xml</descriptor> 
+						</descriptors> </configuration> </execution> -->
 				</executions>
 			</plugin>
 			<plugin>
@@ -181,57 +171,6 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			<!--plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
-				<version>2.3.1</version> <executions> <execution> <id>jarsign</id> <phase>package</phase> 
-				<goals> <goal>sign</goal> </goals> <configuration> <jarPath>${project.build.directory}/${project.build.finalName}.jar</jarPath> 
-				<keystore>${user.keystore}</keystore> <alias>${user.keystore-alias}</alias> 
-				<storepass>${user.keystore-pass}</storepass> <verbose>true</verbose> <verify>true</verify> 
-				</configuration> </execution> </executions> </plugin -->
-
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId> 
-				<version>3.0</version> <inherited>true</inherited> <executions> <execution> 
-				<id>makesite</id> <phase>package</phase> <goals> <goal>site</goal> </goals> 
-				<configuration> <locales>en,de</locales> addModules>true</addModules <outputEncoding>UTF-8</outputEncoding> 
-				<reportPlugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId> 
-				maven-project-info-reports-plugin </artifactId> <version>2.4</version> <reportSets> 
-				<reportSet> <reports> <report>dependencies</report> <report>license</report> 
-				<report>scm</report> <report>project-team</report> </reports> </reportSet> 
-				</reportSets> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>l10n-maven-plugin</artifactId> 
-				<version>1.0-alpha-2</version> <configuration> <locales> <locale>en</locale> 
-				<locale>de</locale> </locales> </configuration> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-changes-plugin</artifactId> <version>2.6</version> <reportSets> 
-				<reportSet> <reports> <report>changes-report</report> </reports> </reportSet> 
-				</reportSets> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-javadoc-plugin</artifactId> <version>2.8</version> </plugin> 
-				<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId> 
-				<version>2.5</version> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-changelog-plugin</artifactId> <version>2.2</version> </plugin> 
-				<plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jdepend-maven-plugin</artifactId> 
-				<version>2.0-beta-2</version> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-checkstyle-plugin</artifactId> <version>2.8</version> <configuration> 
-				<enableRulesSummary>true</enableRulesSummary> <enableSeveritySummary>true</enableSeveritySummary> 
-				<enableFilesSummary>true</enableFilesSummary> <consoleOutput>false</consoleOutput> 
-				</configuration> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-pmd-plugin</artifactId> <version>2.6</version> <configuration> 
-				<linkXref>true</linkXref> <minimumTokens>100</minimumTokens> <targetJdk>${user.jdk-version}</targetJdk> 
-				</configuration> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId> 
-				<artifactId>javancss-maven-plugin</artifactId> <version>2.0</version> </plugin> 
-				<plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>cobertura-maven-plugin</artifactId> 
-				<version>2.5.1</version> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId> 
-				<artifactId>findbugs-maven-plugin</artifactId> <version>2.4.0</version> </plugin> 
-				</reportPlugins> </configuration> </execution> </executions> </plugin> -->
-			<!--plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId> 
-				<version>1.1</version> <configuration> <homedir>${user.pgp-keyring-home}</homedir> 
-				<useAgent>false</useAgent> <key>${user.pgp-key}</key> <passphrase>${user.pgp-pass}</passphrase> 
-				</configuration> <executions> <execution> <id>sign-artifacts</id> <phase>verify</phase> 
-				<goals> <goal>sign</goal> </goals> </execution> </executions> </plugin -->
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId> 
-				<version>2.3.1</version> <executions> <execution> <goals> <goal>install</goal> 
-				</goals> <configuration> <createChecksum>true</createChecksum> </configuration> 
-				</execution> </executions> </plugin> -->
-			<!--plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-deploy-plugin</artifactId> 
-				<configuration> <updateReleaseInfo>true</updateReleaseInfo> <generatePom>true</generatePom> 
-				</configuration> </plugin -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
