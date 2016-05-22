@@ -20,6 +20,70 @@ Repository
 verfügbar sind oder einfach auch keine Artifakte eines Maven Builds
 darstellen und ihnen somit die Metainformationen fehlen.
 
+## Nutzung / Beispiel
+
+Eine mögliche pom.xml folgt. Im pom wird gui4j aus dem Internet heruntergeladen und ins lokale repository installiert.
+
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.funthomas424242</groupId>
+	<artifactId>flat-project</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.3-SNAPSHOT</version>
+	<name>Test JAR Install Plugin</name>
+	<inceptionYear>2016</inceptionYear>
+
+	<url>https://github.com/FunThomas424242/jar-install-plugin/</url>
+
+	<dependencies>
+		<!-- <dependency>
+			<groupId>gui4j</groupId>
+			<artifactId>gui4j</artifactId>
+			<version>1.2.3</version>
+			<scope>compile</scope>
+		</dependency> -->
+	</dependencies>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>com.github.funthomas424242</groupId>
+				<artifactId>jar-install-plugin</artifactId>
+				<version>0.0.3-SNAPSHOT</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>downloadjars</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>install</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- Specify the MyMojo parameter -->
+					<downloads>
+						<downloadArtifact>
+							<url>http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download</url>
+							<groupId>gui4j</groupId>
+							<artifactId>gui4j</artifactId>
+							<version>1.2.3</version>
+							<scope>compile</scope>
+						</downloadArtifact>
+					</downloads>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+
 
 ## Nützliche Quellen im Zwischennetz (Neuland in de)
 
@@ -29,20 +93,15 @@ darstellen und ihnen somit die Metainformationen fehlen.
 
 ## Project Sites
 
-
-**Homepage:** http://funthomas424242.github.com/jar-install-plugin
-
 **Maven Repositories**
 
  - snapshot repository: https://repository-funthomas424242.forge.cloudbees.com/snapshot/
  - release repository: https://repository-funthomas424242.forge.cloudbees.com/release/
 
-**Project on GitHub:** https://github.com/funthomas424242/jar-install-plugin/ (is empty)
+**Project on GitHub:** https://github.com/funthomas424242/jar-install-plugin/
 
-**The sources** are hosted on sourceforge: 
+**The old sources** are hosted on sourceforge: 
 http://sf-mvn-plugins.svn.sourceforge.net/viewvc/sf-mvn-plugins/ (svn repo)
-
-**BuildStatus**: [![Build Status](https://funthomas424242.ci.cloudbees.com/buildStatus/icon?job=jar-install-plugin)](https://funthomas424242.ci.cloudbees.com/job/jar-install-plugin/)
 
 
 ## Powered by
@@ -50,5 +109,4 @@ http://sf-mvn-plugins.svn.sourceforge.net/viewvc/sf-mvn-plugins/ (svn repo)
 
 [![Maven](http://maven.apache.org/images/logos/maven-feather.png)](http://maven.apache.org)
 
-[![CloudBees-Logo](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png)](http://www.cloudbees.com)
 
