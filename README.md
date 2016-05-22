@@ -25,7 +25,7 @@ darstellen und ihnen somit die Metainformationen fehlen.
 Eine mögliche pom.xml folgt. Im pom wird gui4j aus dem Internet heruntergeladen und ins lokale repository installiert.
 
 
-
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -82,7 +82,7 @@ Eine mögliche pom.xml folgt. Im pom wird gui4j aus dem Internet heruntergeladen
 	</build>
 
 </project>
-
+```
 
 
 ## Nützliche Quellen im Zwischennetz (Neuland in de)
