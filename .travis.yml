@@ -12,7 +12,8 @@ script:
   - mvn clean install
 
 after_script:
-  - echo ls ${M2_HOME}/repository/myDepGroup/myDepArtifactID/1.2.3/
+  - echo `ls ${HOME}/.m2/repository/myDepGroup/myDepArtifactID/1.2.3/`
+  - echo `ls /home/travis/.m2/repository/myDepGroup/myDepArtifactID/1.2.3/`
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
