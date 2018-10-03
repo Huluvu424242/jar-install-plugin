@@ -82,8 +82,8 @@
                                     <downloads>
                                         <downloadArtifact>
                                             <url>http://206.189.208.236:3000/files/MarriottMoment_0.0.1.jar</url>
-                                            <groupId>gui4j</groupId>
-                                            <artifactId>gui4j</artifactId>
+                                            <groupId>myDepGroup</groupId>
+                                            <artifactId>myDepArtifactID</artifactId>
                                             <version>1.2.3</version>
                                         </downloadArtifact>
                                     </downloads>
@@ -118,59 +118,51 @@
         </profile>
 
 
-
-
     </profiles>
 
     <dependencies>
 
-
+        <!-- dependency to downloaded jar -->
         <dependency>
-            <groupId>gui4j</groupId>
-            <artifactId>gui4j</artifactId>
+            <groupId>myDepGroup</groupId>
+            <artifactId>myDepArtifactID</artifactId>
             <version>1.2.3</version>
-            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.1</version>
+            <scope>test</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.apache.maven.plugin-tools</groupId>-->
-            <!--<artifactId>maven-plugin-annotations</artifactId>-->
-            <!--<version>3.4</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.maven</groupId>-->
-            <!--<artifactId>maven-plugin-api</artifactId>-->
-            <!--<version>${mavenVersion}</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; dependencies to annotations &ndash;&gt;-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.maven</groupId>-->
-            <!--<artifactId>maven-project</artifactId>-->
-            <!--<version>3.0-alpha-2</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.maven</groupId>-->
-            <!--<artifactId>maven-artifact</artifactId>-->
-            <!--<version>${mavenVersion}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.maven.shared</groupId>-->
-            <!--<artifactId>maven-shared-utils</artifactId>-->
-            <!--<version>3.0.0</version>-->
-        <!--</dependency>-->
 
     </dependencies>
 
     <build>
 
+        <!-- please add here your build logic -->
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.3.0-RC1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.3.0-RC1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
 
     </build>
-
-
 
 
 </project>
