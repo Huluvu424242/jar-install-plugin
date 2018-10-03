@@ -1,11 +1,12 @@
 package com.github.funthomas424242.example;
 
-import org.junit.jupiter.api.Test;
 
-class HelloWorldTest {
+import org.junit.Test;
+
+public class HelloWorldTest {
 
     @Test
-    void testMain() {
+    public void testMain() {
         final HelloWorld classUnderTest = new HelloWorld();
         classUnderTest.main(null);
     }
