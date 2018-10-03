@@ -1,206 +1,176 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.funthomas424242</groupId>
-	<artifactId>jar-install-plugin</artifactId>
-	<packaging>maven-plugin</packaging>
-	<version>0.0.4-SNAPSHOT</version>
-	<name>JAR Install Plugin</name>
-	<inceptionYear>2010</inceptionYear>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.funthomas424242</groupId>
+    <artifactId>jar-install-plugin.example</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>JAR Install Plugin Beispiel</name>
+    <inceptionYear>2018</inceptionYear>
 
-	<url>https://github.com/FunThomas424242/jar-install-plugin/</url>
+    <url>https://github.com/FunThomas424242/jar-install-plugin/</url>
 
-	<description>
-		Maven plugin to download jar files and install them as artifact into
-	  the local maven repository. Additional the artifacts will be added to 
-	  the dependency list of maven project.
-	</description>
+    <description>
+        Beispiel für zur Analyse von issue #2
+    </description>
 
 
-	<prerequisites>
-		<maven>${mavenVersion}</maven>
-	</prerequisites>
+    <prerequisites>
+        <maven>3.3.9</maven>
+    </prerequisites>
 
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<mavenVersion>3.3.9</mavenVersion>
-	</properties>
-
-	<profiles>
-		<profile>
-			<id>local</id>
-			<build>
-				<plugins>
-
-				</plugins>
-			</build>
-		</profile>
-
-	</profiles>
-
-	<scm>
-		<url>https://github.com/FunThomas424242/jar-install-plugin</url>
-		<connection>scm:git:https://github.com/FunThomas424242/jar-install-plugin.git</connection>
-		<developerConnection>scm:git:https://github.com/FunThomas424242/jar-install-plugin.git</developerConnection>
-	</scm>
-
-	<ciManagement>
-		<system>Travis</system>
-		<url>https://travis-ci.org/FunThomas424242/jar-install-plugin</url>
-	</ciManagement>
-
-	<issueManagement>
-		<system>Issue</system>
-		<url>https://github.com/FunThomas424242/jar-install-plugin/issues</url>
-	</issueManagement>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>oss-jfrog-artifactory-snapshots</name>
-			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
-		</snapshotRepository>
-		<repository>
-			<id>bintray-funthomas424242-dsl</id>
-			<name>oss-jfrog-artifactory-releases</name>
-			<url>https://oss.jfrog.org/artifactory/oss-release-local</url>
-		</repository>
-	</distributionManagement>
-
-	<licenses>
-		<license>
-			<name>GNU LESSER GENERAL PUBLIC LICENSE v2.1</name>
-			<url>LICENSE.txt</url>
-			<distribution>manual</distribution>
-		</license>
-	</licenses>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-plugin-api</artifactId>
-			<version>${mavenVersion}</version>
-		</dependency>
-		<!-- dependencies to annotations -->
-		<dependency>
-			<groupId>org.apache.maven.plugin-tools</groupId>
-			<artifactId>maven-plugin-annotations</artifactId>
-			<version>3.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-project</artifactId>
-			<version>3.0-alpha-2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-artifact</artifactId>
-			<version>${mavenVersion}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven.shared</groupId>
-			<artifactId>maven-shared-utils</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven.plugin-testing</groupId>
-			<artifactId>maven-plugin-testing-harness</artifactId>
-			<version>3.3.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>plexus-container-default</artifactId>
-					<groupId>org.codehaus.plexus</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>1.9.5</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>stdassembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<tarLongFileMode>gnu</tarLongFileMode>
-							<outputDirectory>${project.build.directory}/archives</outputDirectory>
-							<descriptorRefs>
-								<descriptorRef>src</descriptorRef>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-						</configuration>
-					</execution>
-					<!-- <execution> <id>siteassembly</id> <phase>package</phase> <goals> 
-						<goal>single</goal> </goals> <configuration> <outputDirectory>${project.build.directory}/archives</outputDirectory> 
-						<tarLongFileMode>gnu</tarLongFileMode> <descriptors> <descriptor>src/main/assembly/site.xml</descriptor> 
-						</descriptors> </configuration> </execution> -->
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.6</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.5.1</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <mavenVersion>3.3.9</mavenVersion>
+    </properties>
 
 
-	<developers>
-		<developer>
-			<id>funthomas424242</id>
-			<name>Thomas Schubert</name>
-			<email>funthomas424242@googlemail.com</email>
-			<timezone>+1</timezone>
-			<organization>The world wide open source community</organization>
-			<roles>
-				<role>owner</role>
-				<role>developer</role>
-			</roles>
-		</developer>
-	</developers>
+    <profiles>
+        <profile>
+            <id>prepareProject</id>
+            <dependencies>
+
+                <dependency>
+                    <groupId>org.apache.maven.plugin-tools</groupId>
+                    <artifactId>maven-plugin-annotations</artifactId>
+                    <version>3.4</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.maven</groupId>
+                    <artifactId>maven-plugin-api</artifactId>
+                    <version>${mavenVersion}</version>
+                </dependency>
+                <!-- dependencies to annotations -->
+
+                <dependency>
+                    <groupId>org.apache.maven</groupId>
+                    <artifactId>maven-project</artifactId>
+                    <version>3.0-alpha-2</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.maven</groupId>
+                    <artifactId>maven-artifact</artifactId>
+                    <version>${mavenVersion}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.maven.shared</groupId>
+                    <artifactId>maven-shared-utils</artifactId>
+                    <version>3.0.0</version>
+                </dependency>
+
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.funthomas424242</groupId>
+                        <artifactId>jar-install-plugin</artifactId>
+                        <version>0.0.3</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Specify the MyMojo parameter -->
+                                    <downloads>
+                                        <downloadArtifact>
+                                            <url>http://206.189.208.236:3000/files/MarriottMoment_0.0.1.jar</url>
+                                            <groupId>gui4j</groupId>
+                                            <artifactId>gui4j</artifactId>
+                                            <version>1.2.3</version>
+                                        </downloadArtifact>
+                                    </downloads>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-funthomas424242-funthomas424242-maven-plugins</id>
+                    <name>bintray</name>
+                    <url>https://dl.bintray.com/funthomas424242/funthomas424242-maven-plugins</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-funthomas424242-funthomas424242-maven-plugins</id>
+                    <name>bintray-plugins</name>
+                    <url>https://dl.bintray.com/funthomas424242/funthomas424242-maven-plugins</url>
+                </pluginRepository>
+            </pluginRepositories>
+
+        </profile>
+
+
+
+
+    </profiles>
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>gui4j</groupId>
+            <artifactId>gui4j</artifactId>
+            <version>1.2.3</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven.plugin-tools</groupId>-->
+            <!--<artifactId>maven-plugin-annotations</artifactId>-->
+            <!--<version>3.4</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven</groupId>-->
+            <!--<artifactId>maven-plugin-api</artifactId>-->
+            <!--<version>${mavenVersion}</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; dependencies to annotations &ndash;&gt;-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven</groupId>-->
+            <!--<artifactId>maven-project</artifactId>-->
+            <!--<version>3.0-alpha-2</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven</groupId>-->
+            <!--<artifactId>maven-artifact</artifactId>-->
+            <!--<version>${mavenVersion}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven.shared</groupId>-->
+            <!--<artifactId>maven-shared-utils</artifactId>-->
+            <!--<version>3.0.0</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <build>
+
+
+    </build>
+
+
+
 
 </project>
