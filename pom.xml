@@ -30,40 +30,40 @@
     <profiles>
         <profile>
             <id>prepareProject</id>
-            <dependencies>
+            <!--<dependencies>-->
 
-                <dependency>
-                    <groupId>org.apache.maven.plugin-tools</groupId>
-                    <artifactId>maven-plugin-annotations</artifactId>
-                    <version>3.4</version>
-                </dependency>
+                <!--<dependency>-->
+                    <!--<groupId>org.apache.maven.plugin-tools</groupId>-->
+                    <!--<artifactId>maven-plugin-annotations</artifactId>-->
+                    <!--<version>3.4</version>-->
+                <!--</dependency>-->
 
-                <dependency>
-                    <groupId>org.apache.maven</groupId>
-                    <artifactId>maven-plugin-api</artifactId>
-                    <version>${mavenVersion}</version>
-                </dependency>
-                <!-- dependencies to annotations -->
+                <!--<dependency>-->
+                    <!--<groupId>org.apache.maven</groupId>-->
+                    <!--<artifactId>maven-plugin-api</artifactId>-->
+                    <!--<version>${mavenVersion}</version>-->
+                <!--</dependency>-->
+                <!--&lt;!&ndash; dependencies to annotations &ndash;&gt;-->
 
-                <dependency>
-                    <groupId>org.apache.maven</groupId>
-                    <artifactId>maven-project</artifactId>
-                    <version>3.0-alpha-2</version>
-                </dependency>
+                <!--<dependency>-->
+                    <!--<groupId>org.apache.maven</groupId>-->
+                    <!--<artifactId>maven-project</artifactId>-->
+                    <!--<version>3.0-alpha-2</version>-->
+                <!--</dependency>-->
 
-                <dependency>
-                    <groupId>org.apache.maven</groupId>
-                    <artifactId>maven-artifact</artifactId>
-                    <version>${mavenVersion}</version>
-                </dependency>
+                <!--<dependency>-->
+                    <!--<groupId>org.apache.maven</groupId>-->
+                    <!--<artifactId>maven-artifact</artifactId>-->
+                    <!--<version>${mavenVersion}</version>-->
+                <!--</dependency>-->
 
-                <dependency>
-                    <groupId>org.apache.maven.shared</groupId>
-                    <artifactId>maven-shared-utils</artifactId>
-                    <version>3.0.0</version>
-                </dependency>
+                <!--<dependency>-->
+                    <!--<groupId>org.apache.maven.shared</groupId>-->
+                    <!--<artifactId>maven-shared-utils</artifactId>-->
+                    <!--<version>3.0.0</version>-->
+                <!--</dependency>-->
 
-            </dependencies>
+            <!--</dependencies>-->
 
             <build>
                 <plugins>
