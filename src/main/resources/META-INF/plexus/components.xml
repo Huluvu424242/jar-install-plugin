@@ -22,7 +22,7 @@
         <component>
             <role>org.apache.maven.lifecycle.Lifecycle</role>
             <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
-            <role-hint>prepare</role-hint>
+            <role-hint>jar</role-hint>
             <configuration>
                 <id>prepare</id>
                 <phases>
