@@ -120,6 +120,12 @@ http://sf-mvn-plugins.svn.sourceforge.net/viewvc/sf-mvn-plugins/ (svn repo)
 
 ## Nützliche Quellen im Zwischennetz (Neuland in de)
 
+* https://github.com/apache/maven-clean-plugin/blob/maven-clean-plugin-3.1.0/pom.xml
+* https://stackoverflow.com/questions/12433120/creating-a-new-phase
+* https://svn.apache.org/repos/asf/maven/plugins/trunk/maven-scm-publish-plugin/
+* https://stackoverflow.com/questions/36617759/adding-phases-to-the-maven-lifecycle
+* https://github.com/wemu/codezoo-lifecycle-maven-plugin/tree/master/src/main
+* https://maven.apache.org/examples/maven-3-lifecycle-extensions.html
 * https://maven.apache.org/plugin-developers/plugin-testing.html
 * https://github.com/apache/maven-plugins/blob/trunk/maven-install-plugin/src/test/java/org/apache/maven/plugin/install/InstallFileMojoTest.java
 
