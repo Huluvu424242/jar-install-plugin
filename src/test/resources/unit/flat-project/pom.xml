@@ -59,15 +59,15 @@
                         </downloadArtifact>
                     </downloads>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>downloadjars</id>
-                        <phase>download</phase>
-                        <goals>
-                            <goal>installjars</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>downloadjars</id>-->
+<!--                        <phase>download</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>installjars</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
 
 
             </plugin>
