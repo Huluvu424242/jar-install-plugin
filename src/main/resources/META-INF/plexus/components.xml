@@ -12,7 +12,7 @@
                     <pre-download>
                     </pre-download>
                     <download>
-                        com.github.funthomas424242:jar-install-plugin:${project.version}:installjars
+                        com.github.funthomas424242:jar-install-plugin:${project.version}:jarinstall
                     </download>
                     <post-download>
                     </post-download>
@@ -22,7 +22,7 @@
         <component>
             <role>org.apache.maven.lifecycle.Lifecycle</role>
             <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
-            <role-hint>prepare</role-hint>
+            <role-hint>installjars</role-hint>
             <configuration>
                 <id>prepare</id>
                 <phases>
@@ -34,7 +34,7 @@
                     <pre-download>
                     </pre-download>
                     <download>
-                        com.github.funthomas424242:jar-install-plugin:${project.version}:installjars
+                        com.github.funthomas424242:jar-install-plugin:${project.version}:jarinstall
                     </download>
                     <post-download>
                     </post-download>

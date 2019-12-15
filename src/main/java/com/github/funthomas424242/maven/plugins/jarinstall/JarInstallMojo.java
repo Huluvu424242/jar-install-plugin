@@ -14,12 +14,10 @@ import org.apache.maven.artifact.versioning.VersionRange;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
-import org.apache.maven.project.MavenProjectHelper;
+import org.sonatype.aether.RepositorySystem;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,37 +27,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Set;
 
 /**
  * @author SchubertT006
- * @goal "installjars"
+ * @goal "jarinstall"
  * @execute lifecycle="prepare" phase="download"
- * @requiersProject
+ *
  */
-@Mojo(name = "installjars")
+@Mojo(name = "jarinstall")
 public class JarInstallMojo extends AbstractMojo {
 
-    final protected Log logger = getLog();
-
-    /**
-     * @component
-     * @required
-     * @readonly
-     */
     @Component
     protected ArtifactInstaller installer;
 
-    /**
-     * @parameter default-value="${project}"
-     * @required
-     * @readonly
-     */
-    @Parameter(defaultValue = "${project}", required = true, readonly = true)
-    protected MavenProject project;
+    @Component
+    private RepositorySystem repoSystem;
+
 
     /**
      * @parameter property="localRepository"
@@ -78,26 +63,26 @@ public class JarInstallMojo extends AbstractMojo {
     protected List<DownloadArtifact> downloads;
 
     protected void printInfo(final String message) {
-        logger.info(message);
+        getLog().info(message);
     }
 
     protected void printError(final String message) {
-        logger.error(message);
+        getLog().error(message);
     }
 
     protected void printError(final Exception e) {
-        logger.error(e);
+        getLog().error(e);
     }
 
     protected void printDebug(final String message) {
-        if (logger.isDebugEnabled()) {
-            logger.debug(message);
+        if (getLog().isDebugEnabled()) {
+            getLog().debug(message);
         }
     }
 
     protected void printDebug(final Exception e) {
-        if (logger.isDebugEnabled()) {
-            logger.debug(e);
+        if (getLog().isDebugEnabled()) {
+            getLog().debug(e);
         }
     }
 
@@ -180,7 +165,7 @@ public class JarInstallMojo extends AbstractMojo {
                     null,
                     artifactHandler);
 
-            addProjectDependency(artifact);
+//            addProjectDependency(artifact);
 
             // check for add to local repository
             final String artifactPath = this.localRepository.getBasedir() + "/"
@@ -228,17 +213,17 @@ public class JarInstallMojo extends AbstractMojo {
 
     }
 
-    protected void addProjectDependency(final Artifact artifact) {
-        // add as dependency with given scope (anytime)
-        final Set<Artifact> dependencyArtifacts
-                = this.project.getDependencyArtifacts();
-        // TODO Bad fix for not supported Operation add in dependencyArtifacts
-        final Set<Artifact> newArtifacts = new HashSet<Artifact>();
-        newArtifacts.addAll(dependencyArtifacts);
-        logger.info("add artifact " + artifact);
-        newArtifacts.add(artifact);
-        this.project.setDependencyArtifacts(newArtifacts);
-    }
+//    protected void addProjectDependency(final Artifact artifact) {
+//        // add as dependency with given scope (anytime)
+//        final Set<Artifact> dependencyArtifacts
+//                = this.project.getDependencyArtifacts();
+//        // TODO Bad fix for not supported Operation add in dependencyArtifacts
+//        final Set<Artifact> newArtifacts = new HashSet<Artifact>();
+//        newArtifacts.addAll(dependencyArtifacts);
+//        logger.info("add artifact " + artifact);
+//        newArtifacts.add(artifact);
+//        this.project.setDependencyArtifacts(newArtifacts);
+//    }
 
     /**
      * Copy the file content from URL to local tmp File.
