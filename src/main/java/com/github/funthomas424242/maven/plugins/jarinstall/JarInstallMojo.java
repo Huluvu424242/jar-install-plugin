@@ -45,18 +45,6 @@ public class JarInstallMojo extends AbstractMojo {
 
     final protected Log logger = getLog();
 
-
-    /**
-     * Used for attaching the artifact in the project.
-     *
-     * @component
-     *
-     * @required
-     * @readonly
-     */
-    @Component
-    protected MavenProjectHelper projectHelper;
-
     /**
      * @component
      * @required
