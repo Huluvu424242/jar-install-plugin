@@ -10,3 +10,9 @@ bin/
 /bin/
 /pom.xml.releaseBackup
 /release.properties
+
+# ide
+.idea/
+.mvn/
+*.iml
+
