@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<lifecycles>
+    <lifecycle>
+        <id>prepare</id>
+        <phases>
+            <phase>
+                <id>pre-download</id>
+            </phase>
+            <phase>
+                <id>download</id>
+            </phase>
+            <phase>
+                <id>post-download</id>
+            </phase>
+        </phases>
+    </lifecycle>
+</lifecycles>

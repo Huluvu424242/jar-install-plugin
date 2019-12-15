@@ -34,8 +34,8 @@ import org.apache.maven.project.MavenProjectHelper;
 
 /**
  * @author SchubertT006
- * @goal install
- * @phase validate
+ * @goal installjars
+ * @execute lifecycle="prepare" phase="download"
  * @requiersProject
  */
 @Mojo(name = "jarinstall")
