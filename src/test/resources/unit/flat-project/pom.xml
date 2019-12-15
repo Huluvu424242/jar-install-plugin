@@ -20,14 +20,14 @@
     </dependencies>
 
     <build>
-        <defaultGoal>install</defaultGoal>
-<!--        <extensions>-->
-<!--            <extension>-->
-<!--                <groupId>com.github.funthomas424242</groupId>-->
-<!--                <artifactId>jar-install-plugin</artifactId>-->
-<!--                <version>0.0.4-SNAPSHOT</version>-->
-<!--            </extension>-->
-<!--        </extensions>-->
+        <!--        <defaultGoal>install</defaultGoal>-->
+        <!--        <extensions>-->
+        <!--            <extension>-->
+        <!--                <groupId>com.github.funthomas424242</groupId>-->
+        <!--                <artifactId>jar-install-plugin</artifactId>-->
+        <!--                <version>0.0.4-SNAPSHOT</version>-->
+        <!--            </extension>-->
+        <!--        </extensions>-->
 
         <plugins>
             <plugin>
@@ -35,6 +35,20 @@
                 <artifactId>jar-install-plugin</artifactId>
                 <version>0.0.4-SNAPSHOT</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <!-- Specify the MyMojo parameter -->
+                    <downloads>
+                        <downloadArtifact>
+                            <url>
+                                http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download
+                            </url>
+                            <groupId>gui4j</groupId>
+                            <artifactId>gui4j</artifactId>
+                            <version>1.2.30</version>
+                            <scope>compile</scope>
+                        </downloadArtifact>
+                    </downloads>
+                </configuration>
                 <executions>
                     <execution>
                         <id>downloadjars</id>
@@ -44,18 +58,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <!-- Specify the MyMojo parameter -->
-                    <downloads>
-                        <downloadArtifact>
-                            <url>http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download</url>
-                            <groupId>gui4j</groupId>
-                            <artifactId>gui4j</artifactId>
-                            <version>1.2.30</version>
-                            <scope>compile</scope>
-                        </downloadArtifact>
-                    </downloads>
-                </configuration>
+
 
             </plugin>
         </plugins>
