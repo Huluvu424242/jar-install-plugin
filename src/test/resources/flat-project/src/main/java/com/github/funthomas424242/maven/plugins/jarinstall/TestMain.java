@@ -1,7 +1,7 @@
 package com.github.funthomas424242.maven.plugins.jarinstall;
 
-import com.gui4j.*;
 
+import org.gui4j.Gui4j;
 
 public class TestMain {
 

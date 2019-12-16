@@ -57,7 +57,7 @@
                     <!-- Specify the MyMojo parameter -->
                     <downloads>
                         <downloadArtifact>
-                            <url>http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download</url>
+                            <url>https://bintray.com/funthomas424242/funthomas424242-libs/download_file?file_path=com%2Fgithub%2Ffunthomas424242%2Forg.gui4j%2F0.1.5%2Forg.gui4j-0.1.5.jar</url>
                             <groupId>gui4j</groupId>
                             <artifactId>gui4j</artifactId>
                             <version>1.2.30</version>
