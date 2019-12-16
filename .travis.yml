@@ -6,7 +6,7 @@ language:
 #  - docker
 
 jdk:
-    - oraclejdk8
+    - openjdk11
 #    - oraclejdk7
 
 #env:
@@ -22,5 +22,5 @@ jdk:
 #before_script:
 #   - mvn -Pciserver test -B
 
-#script:
-#   - mvn -Pciserver install
+script:
+   - ./mvnw clean install
