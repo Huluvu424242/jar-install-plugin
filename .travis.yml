@@ -12,7 +12,7 @@ jdk:
 #env:
 #   -  ciserver=true
 
-#before_install:
+#before_install:DskipTests
 #   - rm -f ~/bookdb.*
 #   - mvn -Pciserver clean 
 
@@ -24,3 +24,6 @@ jdk:
 
 script:
    - ./mvnw clean install
+
+after_script:
+  -  cd src/test/resources/flat-project; ./test.sh
