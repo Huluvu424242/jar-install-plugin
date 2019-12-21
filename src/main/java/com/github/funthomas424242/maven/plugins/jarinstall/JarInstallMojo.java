@@ -36,11 +36,11 @@ import java.util.Set;
 
 /**
  * @author SchubertT006
- * @goal "installjars"
+ * @goal "install"
  * @execute lifecycle="prepare" phase="download"
  * @requiersProject
  */
-@Mojo(name = "installjars")
+@Mojo(name = "install")
 public class JarInstallMojo extends AbstractMojo {
 
     final protected Log logger = getLog();

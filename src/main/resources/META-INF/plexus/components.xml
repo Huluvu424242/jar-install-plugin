@@ -12,7 +12,7 @@
                     <pre-download>
                     </pre-download>
                     <download>
-                        com.github.funthomas424242:jar-install-plugin:${project.version}:installjars
+                        com.github.funthomas424242:jar-install-plugin:${project.version}:install
                     </download>
                     <post-download>
                     </post-download>
@@ -34,7 +34,7 @@
                     <pre-download>
                     </pre-download>
                     <download>
-                        com.github.funthomas424242:jar-install-plugin:${project.version}:installjars
+                        com.github.funthomas424242:jar-install-plugin:${project.version}:install
                     </download>
                     <post-download>
                     </post-download>
