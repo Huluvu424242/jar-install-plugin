@@ -10,3 +10,7 @@ bin/
 /bin/
 /pom.xml.releaseBackup
 /release.properties
+
+.idea/
+jar-install-plugin.iml
+
