@@ -120,6 +120,7 @@ http://sf-mvn-plugins.svn.sourceforge.net/viewvc/sf-mvn-plugins/ (svn repo)
 
 ## Nützliche Quellen im Zwischennetz (Neuland in de)
 
+* https://github.com/gwt-maven-plugin/gwt-maven-plugin
 * https://blog.sonatype.com/2009/08/create-a-customized-build-process-in-maven/
 * https://carlosvin.github.io/posts/creating-custom-maven-plugin/#write-a-custom-mojo
 * https://github.com/apache/maven-clean-plugin/blob/maven-clean-plugin-3.1.0/pom.xml
