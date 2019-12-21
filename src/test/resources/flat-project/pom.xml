@@ -51,7 +51,7 @@
             <plugin>
                 <groupId>com.github.funthomas424242</groupId>
                 <artifactId>jar-install-plugin</artifactId>
-                <version>0.0.4-SNAPSHOT</version>
+                <version>0.0.4</version>
                 <extensions>true</extensions>
                 <configuration>
                     <!-- Specify the MyMojo parameter -->
