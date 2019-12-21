@@ -19,11 +19,19 @@
             <groupId>gui4j</groupId>
             <artifactId>gui4j</artifactId>
             <version>1.2.30</version>
+            <type>legacy-jar</type>
             <scope>compile</scope>
         </dependency>
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.github.funthomas424242</groupId>
+                <artifactId>jar-install-plugin</artifactId>
+                <version>0.0.4-SNAPSHOT</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,24 +56,24 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>com.github.funthomas424242</groupId>
-                <artifactId>jar-install-plugin</artifactId>
-                <version>0.0.4-SNAPSHOT</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <!-- Specify the MyMojo parameter -->
-                    <downloads>
-                        <downloadArtifact>
-                            <url>https://bintray.com/funthomas424242/funthomas424242-libs/download_file?file_path=com%2Fgithub%2Ffunthomas424242%2Forg.gui4j%2F0.1.5%2Forg.gui4j-0.1.5.jar</url>
-                            <groupId>gui4j</groupId>
-                            <artifactId>gui4j</artifactId>
-                            <version>1.2.30</version>
-                            <scope>compile</scope>
-                        </downloadArtifact>
-                    </downloads>
-                </configuration>
-            </plugin>
+            <!--                        <plugin>-->
+            <!--                            <groupId>com.github.funthomas424242</groupId>-->
+            <!--                            <artifactId>jar-install-plugin</artifactId>-->
+            <!--                            <version>0.0.4-SNAPSHOT</version>-->
+            <!--                            <extensions>true</extensions>-->
+            <!--                            <configuration>-->
+            <!--                                &lt;!&ndash; Specify the MyMojo parameter &ndash;&gt;-->
+            <!--                                <downloads>-->
+            <!--                                    <downloadArtifact>-->
+            <!--                                        <url>https://bintray.com/funthomas424242/funthomas424242-libs/download_file?file_path=com%2Fgithub%2Ffunthomas424242%2Forg.gui4j%2F0.1.5%2Forg.gui4j-0.1.5.jar</url>-->
+            <!--                                        <groupId>gui4j</groupId>-->
+            <!--                                        <artifactId>gui4j</artifactId>-->
+            <!--                                        <version>1.2.30</version>-->
+            <!--                                        <scope>compile</scope>-->
+            <!--                                    </downloadArtifact>-->
+            <!--                                </downloads>-->
+            <!--                            </configuration>-->
+            <!--                        </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -82,6 +90,16 @@
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.funthomas424242</groupId>
+                    <artifactId>jar-install-plugin</artifactId>
+                    <version>0.0.4-SNAPSHOT</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>

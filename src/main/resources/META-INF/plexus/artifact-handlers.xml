@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component-set>
+    <components>
+        <!--
+         | LEGACY-JAR
+         |-->
+        <component>
+            <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+            <role-hint>jar</role-hint>
+            <implementation>com.github.funthomas424242.maven.plugins.jarinstall.LegacyJarHandler</implementation>
+            <configuration>
+                <!--                <classifier>tests</classifier>-->
+                <!--                <type>test-jar</type>-->
+                <!--                <packaging>jar</packaging>-->
+                <extension>jar</extension>
+                <type>legacy-jar</type>
+                <includesDependencies>true</includesDependencies>
+                <language>java</language>
+                <addedToClasspath>true</addedToClasspath>
+            </configuration>
+        </component>
+    </components>
+</component-set>

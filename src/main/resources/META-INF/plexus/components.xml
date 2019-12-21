@@ -22,7 +22,7 @@
         <component>
             <role>org.apache.maven.lifecycle.Lifecycle</role>
             <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
-            <role-hint>jar</role-hint>
+            <role-hint>prepare</role-hint>
             <configuration>
                 <id>prepare</id>
                 <phases>
@@ -41,5 +41,20 @@
                 </default-phases>
             </configuration>
         </component>
+
+
+        <!-- Artifact Handlers -->
+        <component>
+            <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+            <role-hint>plexus-service</role-hint>
+<!--            <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>-->
+            <implementation>com.github.funthomas424242.maven.plugins.jarinstall.LegacyJarHandler</implementation>
+            <configuration>
+                <type>legacy-jar</type>
+                <extension>jar</extension>
+                <packaging>jar</packaging>
+            </configuration>
+        </component>
     </components>
 </component-set>
+
