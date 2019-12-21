@@ -217,29 +217,77 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <!-- NOTE: We don't need a groupId specification because the group is
+                    org.apache.maven.plugins ...which is assumed by default. -->
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.2.0</version>
                 <executions>
                     <execution>
-                        <id>stdassembly</id>
+                        <id>package-assemblies</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
                             <tarLongFileMode>gnu</tarLongFileMode>
-                            <outputDirectory>${project.build.directory}/archives</outputDirectory>
                             <descriptorRefs>
-                                <descriptorRef>src</descriptorRef>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                         </configuration>
                     </execution>
-                    <!-- <execution> <id>siteassembly</id> <phase>package</phase> <goals>
-                        <goal>single</goal> </goals> <configuration> <outputDirectory>${project.build.directory}/archives</outputDirectory>
-                        <tarLongFileMode>gnu</tarLongFileMode> <descriptors> <descriptor>src/main/assembly/site.xml</descriptor>
-                        </descriptors> </configuration> </execution> -->
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalJOption>-Xdoclint:none</additionalJOption>
+                    <tags>
+                        <tag>
+                            <name>goal</name>
+                            <placement>a</placement>
+                            <head>Goal:</head>
+                        </tag>
+                        <tag>
+                            <name>phase</name>
+                            <placement>a</placement>
+                            <head>Phase:</head>
+                        </tag>
+                        <tag>
+                            <name>threadSafe</name>
+                            <placement>a</placement>
+                            <head>Thread Safe:</head>
+                        </tag>
+                        <tag>
+                            <name>requiresDependencyResolution</name>
+                            <placement>a</placement>
+                            <head>Requires Dependency Resolution:</head>
+                        </tag>
+                        <tag>
+                            <name>requiresProject</name>
+                            <placement>a</placement>
+                            <head>Requires Project:</head>
+                        </tag>
+                    </tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
