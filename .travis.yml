@@ -6,7 +6,7 @@ language:
 #  - docker
 
 jdk:
-    - openjdk11
+    - openjdk13
 #    - oraclejdk7
 
 #env:
