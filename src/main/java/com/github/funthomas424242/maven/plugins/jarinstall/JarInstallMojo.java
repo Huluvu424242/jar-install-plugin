@@ -3,18 +3,6 @@
  */
 package com.github.funthomas424242.maven.plugins.jarinstall;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DefaultArtifact;
@@ -23,62 +11,70 @@ import org.apache.maven.artifact.installer.ArtifactInstallationException;
 import org.apache.maven.artifact.installer.ArtifactInstaller;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.versioning.VersionRange;
-import org.apache.maven.model.Repository;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Set;
+
 /**
  * @author SchubertT006
- * @goal install
- * @phase validate
+ * @goal "install"
+ * @execute lifecycle="prepare" phase="download"
  * @requiersProject
  */
-@Mojo(name = "jarinstall")
+@Mojo(name = "install")
 public class JarInstallMojo extends AbstractMojo {
 
     final protected Log logger = getLog();
+
+    /**
+     * @component
+     * @required
+     * @readonly
+     */
+    @Component
+    protected ArtifactInstaller installer;
 
     /**
      * @parameter default-value="${project}"
      * @required
      * @readonly
      */
+    @Parameter(defaultValue = "${project}", required = true, readonly = true)
     protected MavenProject project;
-
-    /**
-     * Used for attaching the artifact in the project.
-     *
-     * @component
-     *
-     * @required
-     * @readonly
-     */
-    protected MavenProjectHelper projectHelper;
 
     /**
      * @parameter property="localRepository"
      * @required
      * @readonly
      */
+    @Parameter(property = "localRepository", required = true, readonly = true)
     protected ArtifactRepository localRepository;
-
-    /**
-     * @component
-     * @required
-     * @readonly
-     */
-    protected ArtifactInstaller installer;
 
     /**
      * @parameter
      * @required
      *
      */
+    @Parameter(required = true)
     protected List<DownloadArtifact> downloads;
 
     protected void printInfo(final String message) {
@@ -126,27 +122,23 @@ public class JarInstallMojo extends AbstractMojo {
         // </configuration>
         //
 
-        printInfo("START");
-        final ListIterator<DownloadArtifact> it = downloads.listIterator();
+        printInfo("START " + downloads);
+        final ListIterator<DownloadArtifact> it;
+        if (downloads != null) {
+            it = downloads.listIterator();
+        } else {
+            it = new ArrayList<DownloadArtifact>().listIterator();
+        }
         while (it.hasNext()) {
             final DownloadArtifact downloadArtifact = it.next();
             // downloadArtifact allways not null
 
             final String groupId = downloadArtifact.getGroupId();
-            // "com.simontuffs.onejar";
-
             final String artifactId = downloadArtifact.getArtifactId();
-            // "one-jar-boot";
-
             final String version = downloadArtifact.getVersion();
-            // "0.96";
             final String scope = downloadArtifact.getScope();
-            // null;
-            String type = downloadArtifact.getType();
-            // "jar";
-
             final String url = downloadArtifact.getUrl();
-            // "http://sourceforge.net/projects/one-jar/files/one-jar/one-jar-0.96/one-jar-boot-0.96.jar/download";
+            String type = downloadArtifact.getType();
 
             // validation part
             if (groupId == null) {
@@ -175,13 +167,18 @@ public class JarInstallMojo extends AbstractMojo {
                 type = "jar";
             }
 
-            final VersionRange versionsRange = VersionRange
-                    .createFromVersion(version);
+            final VersionRange versionsRange = VersionRange.createFromVersion(version);
 
-            final DefaultArtifactHandler artifactHandler = new DefaultArtifactHandler(
-                    type);
-            final Artifact artifact = new DefaultArtifact(groupId, artifactId,
-                    versionsRange, scope, type, null, artifactHandler);
+            final DefaultArtifactHandler artifactHandler
+                    = new DefaultArtifactHandler(type);
+            final Artifact artifact = new DefaultArtifact(
+                    groupId,
+                    artifactId,
+                    versionsRange,
+                    scope,
+                    type,
+                    null,
+                    artifactHandler);
 
             addProjectDependency(artifact);
 
@@ -233,11 +230,12 @@ public class JarInstallMojo extends AbstractMojo {
 
     protected void addProjectDependency(final Artifact artifact) {
         // add as dependency with given scope (anytime)
-        final Set<Artifact> dependencyArtifacts = this.project
-                .getDependencyArtifacts();
+        final Set<Artifact> dependencyArtifacts
+                = this.project.getDependencyArtifacts();
         // TODO Bad fix for not supported Operation add in dependencyArtifacts
         final Set<Artifact> newArtifacts = new HashSet<Artifact>();
         newArtifacts.addAll(dependencyArtifacts);
+        logger.info("add artifact " + artifact);
         newArtifacts.add(artifact);
         this.project.setDependencyArtifacts(newArtifacts);
     }

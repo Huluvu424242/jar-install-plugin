@@ -10,6 +10,10 @@
 
     <url>https://github.com/FunThomas424242/jar-install-plugin/</url>
 
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>gui4j</groupId>
@@ -20,8 +24,30 @@
     </dependencies>
 
     <build>
-<!--        <defaultGoal>install</defaultGoal>-->
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <executions>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.6.2</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>13</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.github.funthomas424242</groupId>
                 <artifactId>jar-install-plugin</artifactId>
@@ -31,7 +57,7 @@
                     <!-- Specify the MyMojo parameter -->
                     <downloads>
                         <downloadArtifact>
-                            <url>http://sourceforge.net/projects/gui4j/files/gui4j/1.2.3/gui4j-1.2.3.jar/download</url>
+                            <url>https://bintray.com/funthomas424242/funthomas424242-libs/download_file?file_path=com%2Fgithub%2Ffunthomas424242%2Forg.gui4j%2F0.1.5%2Forg.gui4j-0.1.5.jar</url>
                             <groupId>gui4j</groupId>
                             <artifactId>gui4j</artifactId>
                             <version>1.2.30</version>
@@ -45,8 +71,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <release>11</release>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>--add-opens=java.base/java.lang=ALL-UNNAMED</arg>
+                        <arg>--add-opens=java.base/java.net=ALL-UNNAMED</arg>
+                    </compilerArgs>
+                    <fork>true</fork>
                 </configuration>
             </plugin>
         </plugins>

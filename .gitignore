@@ -11,6 +11,8 @@ bin/
 /pom.xml.releaseBackup
 /release.properties
 
+# ide
 .idea/
-jar-install-plugin.iml
+.mvn/
+*.iml
 
