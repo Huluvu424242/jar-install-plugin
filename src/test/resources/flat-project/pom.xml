@@ -29,7 +29,7 @@
             <extension>
                 <groupId>com.github.funthomas424242</groupId>
                 <artifactId>jar-install-plugin</artifactId>
-                <version>0.0.4-SNAPSHOT</version>
+                <version>0.0.5-SNAPSHOT</version>
             </extension>
         </extensions>
         <plugins>
@@ -59,7 +59,7 @@
             <!--                        <plugin>-->
             <!--                            <groupId>com.github.funthomas424242</groupId>-->
             <!--                            <artifactId>jar-install-plugin</artifactId>-->
-            <!--                            <version>0.0.4-SNAPSHOT</version>-->
+            <!--                            <version>0.0.5-SNAPSHOT</version>-->
             <!--                            <extensions>true</extensions>-->
             <!--                            <configuration>-->
             <!--                                &lt;!&ndash; Specify the MyMojo parameter &ndash;&gt;-->
@@ -95,7 +95,7 @@
                 <plugin>
                     <groupId>com.github.funthomas424242</groupId>
                     <artifactId>jar-install-plugin</artifactId>
-                    <version>0.0.4-SNAPSHOT</version>
+                    <version>0.0.5-SNAPSHOT</version>
                     <extensions>true</extensions>
                 </plugin>
             </plugins>
