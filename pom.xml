@@ -232,6 +232,7 @@
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
+                            <attach>true</attach>
                         </configuration>
                     </execution>
                 </executions>
@@ -239,6 +240,7 @@
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
+                    <attach>true</attach>
                     <additionalJOption>-Xdoclint:none</additionalJOption>
                     <tags>
                         <tag>
